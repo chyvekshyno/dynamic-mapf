@@ -1,5 +1,6 @@
 package tuki.diploma.tmo.model.core;
 
+import java.io.Serializable;
 import java.util.Objects;
 
 import lombok.AllArgsConstructor;
@@ -10,26 +11,34 @@ import lombok.NonNull;
 @Builder
 @AllArgsConstructor
 @Data
-public class Cell {
+public class Cell implements Serializable {
 
     @NonNull
     private final Coordinate coord;
-    private double dangerLevel;
     private double trafficLevel;
-    private double heuristic;
     private boolean isWalkable;
+    private transient double dangerLevel;
 
     public Cell(final Coordinate coord) {
         this.coord = coord;
+        isWalkable = true;
     }
 
     public Cell(final int x, final int y) {
         this(new Coordinate(x, y));
     }
 
+    public Integer X() {
+        return coord.x();
+    }
+
+    public Integer Y() {
+        return coord.y();
+    }
+
     @Override
     public int hashCode() {
-        return Objects.hash(coord, trafficLevel, heuristic);
+        return Objects.hash(coord, trafficLevel, isWalkable);
     }
 
     @Override
@@ -52,8 +61,7 @@ public class Cell {
     }
 
     public boolean atSameCoord(final int x, final int y) {
-        return this.coord.x() == x
-            && this.coord.y() == y;
+        return this.coord.x() == x && this.coord.y() == y;
     }
 
     public boolean atSameCoord(final Coordinate coord) {

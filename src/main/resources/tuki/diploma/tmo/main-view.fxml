@@ -1,0 +1,53 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<BorderPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="400.0" prefWidth="600.0" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuki.diploma.tmo.controllers.MainController">
+  <left>
+    <VBox alignment="TOP_CENTER" prefHeight="200.0" prefWidth="120.0" BorderPane.alignment="CENTER">
+      <padding>
+        <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+      </padding>
+      <Label fx:id="labelControl" text="control" />
+
+      <HBox>
+        <Button fx:id="btnControlPlay" minWidth="50" onAction="#handlePlay" text="Play" />
+        <Button fx:id="btnControlStop" minWidth="50" onAction="#handleStop" text="Stop" />
+        <Button fx:id="btnControlStep" minWidth="50" onAction="#handleStep" text="Step" />
+      </HBox>
+
+      <Separator prefWidth="200.0">
+        <VBox.margin>
+          <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+        </VBox.margin>
+      </Separator>
+
+      <HBox maxWidth="-Infinity" minWidth="-Infinity">
+        <Button fx:id="btnControlNew" maxWidth="1.7976931348623157E308" minWidth="-Infinity" onAction="#handleMapCreating" text="New" />
+        <Button fx:id="btnControlLoad" maxWidth="1.7976931348623157E308" minWidth="-Infinity" onAction="#handleMapLoading" text="Load" />
+        <Button fx:id="btnControlSave" maxWidth="1.7976931348623157E308" minWidth="-Infinity" onAction="#handleMapSaving" text="Save" />
+      </HBox>
+
+      <Separator prefWidth="200.0">
+        <VBox.margin>
+          <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+        </VBox.margin>
+      </Separator>
+
+      <ToggleButton fx:id="toggleControlDrawing" maxWidth="1.7976931348623157E308" minWidth="-Infinity" mnemonicParsing="false" text="DRAWING" />
+
+      <Separator prefWidth="200.0">
+        <VBox.margin>
+          <Insets bottom="16.0" left="16.0" right="16.0" top="16.0" />
+        </VBox.margin>
+      </Separator>
+
+      <Label fx:id="labelInfo" text="Info" />
+    </VBox>
+  </left>
+  <center>
+    <fx:include fx:id="mapView" source="map-view.fxml" />
+  </center>
+</BorderPane>

@@ -4,17 +4,26 @@ import lombok.Data;
 import lombok.EqualsAndHashCode;
 
 @Data
-@EqualsAndHashCode(callSuper=false)
+@EqualsAndHashCode(callSuper=true)
 public class Follower extends Agent{
 
     private Leader leader;
 
-    public Follower(int id, Cell position) {
-        super(id, position);
+    public Follower(Cell position) {
+        super(position);
     }
 
-    public Follower(int id, int x, int y) {
-        super(id, x, y);
+    public Follower(int x, int y) {
+        super(x, y);
     }
 
+    public Follower(Cell position, Leader leader) {
+        super(position);
+        this.leader = leader;
+    }
+
+    public Follower(int x, int y, Leader leader) {
+        super(x, y);
+        this.leader = leader;
+    }
 }

@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.geometry.*?>
+<?import javafx.scene.*?>
+<?import javafx.scene.canvas.*?>
+<?import javafx.scene.control.*?>
+
+<ScrollPane fx:id="scrollPaneCanvas" xmlns="http://javafx.com/javafx/17.0.2-ea" xmlns:fx="http://javafx.com/fxml/1" fx:controller="tuki.diploma.tmo.controllers.LatticeMapController">
+   <padding>
+      <Insets bottom="4.0" left="4.0" right="4.0" top="4.0" />
+   </padding>
+  <Group fx:id="groupCanvas">
+    <Canvas fx:id="canvasDrawing" onMouseClicked="#handleMouseEvent" />
+  </Group>
+</ScrollPane>
